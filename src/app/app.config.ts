@@ -10,6 +10,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes), provideFirebaseApp(() => initializeApp({ projectId: "gestor-tareas-aidil", appId: "1:620061689340:web:7c21beec052a60d922de79", storageBucket: "gestor-tareas-aidil.firebasestorage.app", apiKey: "AIzaSyCqlKU31D8ZNXjPzKhL859YjqzApD9lGyc", authDomain: "gestor-tareas-aidil.firebaseapp.com", messagingSenderId: "620061689340", projectNumber: "620061689340", version: "2" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())
+    provideRouter(routes), provideFirebaseApp(() => initializeApp({ projectId: "gestor-tareas-aidil", appId: "1:620061689340:web:7c21beec052a60d922de79", storageBucket: "gestor-tareas-aidil.firebasestorage.app", apiKey: "AIzaSyCqlKU31D8ZNXjPzKhL859YjqzApD9lGyc", authDomain: "gestor-tareas-aidil.firebaseapp.com", messagingSenderId: "620061689340" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())
   ]
 };
