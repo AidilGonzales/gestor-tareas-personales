@@ -1,0 +1,21 @@
+.categorias-container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.crear {
+  display: flex;
+  gap: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,1 +1,36 @@
-<p>categorias works!</p>
+<div class="categorias-container">
+
+  <h2>Categorías</h2>
+
+  <!-- Crear nueva -->
+  <div class="crear">
+    <input
+      type="text"
+      placeholder="Nueva categoría"
+      [(ngModel)]="nuevaCategoria"
+    />
+    <button (click)="crear()">Agregar</button>
+  </div>
+
+  <hr />
+
+  <!-- Lista -->
+  <ul>
+    <li *ngFor="let cat of categorias">
+      <!-- Si está en edición -->
+      <div *ngIf="editando?.id === cat.id">
+        <input [(ngModel)]="editando!.nombre" />
+        <button (click)="guardarEdicion()">Guardar</button>
+        <button (click)="editando = null">Cancelar</button>
+      </div>
+
+      <!-- Vista normal -->
+      <div *ngIf="editando?.id !== cat.id">
+        {{ cat.nombre }}
+        <button (click)="seleccionarParaEditar(cat)">Editar</button>
+        <button (click)="eliminar(cat.id)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+
+</div>
