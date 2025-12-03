@@ -1,21 +1,64 @@
 .categorias-container {
-  max-width: 500px;
-  margin: auto;
+  max-width: 600px;
+  margin: 25px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
 }
 
 .crear {
   display: flex;
   gap: 10px;
+  margin-bottom: 15px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
+input {
+  flex: 1;
   padding: 8px;
-  border-bottom: 1px solid #ddd;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  background: #6383f5;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #4a68d6;
+}
+
+.cancelar {
+  background: #999;
+}
+
+.eliminar {
+  background: #d9534f;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.item-box {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.editando-box {
+  display: flex;
+  gap: 10px;
+}
+
+.error {
+  color: #e53935;
+  margin-bottom: 10px;
 }

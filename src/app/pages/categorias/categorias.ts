@@ -25,17 +25,31 @@ export class Categorias implements OnInit {
     });
   }
 
-  crear() {
-    if (!this.nuevaCategoria.trim()) return;
+  errorMsg = '';
 
-    const categoria: Categoria = {
-      nombre: this.nuevaCategoria,
-      creadoPor: '' // luego colocamos uid real del usuario
-    };
+crear() {
+  const nombre = this.nuevaCategoria.trim();
 
-    this.categoriasService.crearCategoria(categoria);
-    this.nuevaCategoria = '';
+  if (!nombre) {
+    this.errorMsg = "El nombre no puede estar vacío.";
+    return;
   }
+
+  if (this.categorias.some(c => c.nombre.toLowerCase() === nombre.toLowerCase())) {
+    this.errorMsg = "Esta categoría ya existe.";
+    return;
+  }
+
+  const categoria: Categoria = {
+    nombre,
+    creadoPor: '' // luego pondremos el UID real
+  };
+
+  this.categoriasService.crearCategoria(categoria);
+  this.nuevaCategoria = '';
+  this.errorMsg = '';
+}
+
 
   seleccionarParaEditar(cat: Categoria) {
     this.editando = { ...cat };

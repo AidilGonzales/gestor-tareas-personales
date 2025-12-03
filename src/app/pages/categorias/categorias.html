@@ -1,35 +1,42 @@
 <div class="categorias-container">
 
-  <h2>Categorías</h2>
+  <h2>Gestión de Categorías</h2>
 
-  <!-- Crear nueva -->
+  <!-- Crear nueva categoría -->
   <div class="crear">
     <input
       type="text"
-      placeholder="Nueva categoría"
+      placeholder="Nombre de categoría"
       [(ngModel)]="nuevaCategoria"
     />
-    <button (click)="crear()">Agregar</button>
+    <button class="btn" (click)="crear()">Agregar</button>
   </div>
+
+  <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
 
   <hr />
 
-  <!-- Lista -->
+  <!-- Listado -->
   <ul>
     <li *ngFor="let cat of categorias">
-      <!-- Si está en edición -->
-      <div *ngIf="editando?.id === cat.id">
+
+      <!-- Editar -->
+      <div *ngIf="editando?.id === cat.id" class="editando-box">
         <input [(ngModel)]="editando!.nombre" />
-        <button (click)="guardarEdicion()">Guardar</button>
-        <button (click)="editando = null">Cancelar</button>
+        <button class="btn" (click)="guardarEdicion()">Guardar</button>
+        <button class="btn cancelar" (click)="editando = null">Cancelar</button>
       </div>
 
-      <!-- Vista normal -->
-      <div *ngIf="editando?.id !== cat.id">
-        {{ cat.nombre }}
-        <button (click)="seleccionarParaEditar(cat)">Editar</button>
-        <button (click)="eliminar(cat.id)">Eliminar</button>
+      <!-- Normal -->
+      <div *ngIf="editando?.id !== cat.id" class="item-box">
+        <span>{{ cat.nombre }}</span>
+
+        <div class="btn-group">
+          <button class="btn" (click)="seleccionarParaEditar(cat)">Editar</button>
+          <button class="btn eliminar" (click)="eliminar(cat.id)">Eliminar</button>
+        </div>
       </div>
+
     </li>
   </ul>
 
