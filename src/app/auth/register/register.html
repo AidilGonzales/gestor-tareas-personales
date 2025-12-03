@@ -1,14 +1,45 @@
 <div class="register-container">
-  <h2>Crear Cuenta</h2>
 
-  <form (ngSubmit)="register()">
-    <input type="email" placeholder="Correo" [(ngModel)]="email" name="email" required />
-    <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
+  <div class="card">
 
-    <button type="submit">Registrarse</button>
+    <h2>Crear Cuenta</h2>
+    <p class="subtitle">Regístrate para comenzar</p>
 
-    <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+    <form (ngSubmit)="register()">
 
-    <a routerLink="/login">Ya tengo cuenta</a>
-  </form>
+      <div class="input-group">
+        <label>Correo</label>
+        <input 
+          type="email" 
+          [(ngModel)]="email" 
+          name="email" 
+          placeholder="ejemplo@gmail.com" 
+          required 
+        />
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password" 
+          placeholder="********" 
+          required 
+        />
+      </div>
+
+      <button class="btn" type="submit">Registrarse</button>
+
+      <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+      <p class="login-link">
+        ¿Ya tienes cuenta?
+        <a routerLink="/login">Iniciar sesión</a>
+      </p>
+
+    </form>
+
+  </div>
+
 </div>

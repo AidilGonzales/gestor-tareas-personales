@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #4a68d6, #6d8df7);
+  background: linear-gradient(135deg, #d64ac3, #6d8df7);
   padding: 15px;
 }
 
@@ -19,7 +19,7 @@
 
 h2 {
   margin: 0;
-  color: #3a4da0;
+  color: #a03a8b;
   font-size: 28px;
   text-align: center;
 }
@@ -51,14 +51,14 @@ input {
 }
 
 input:focus {
-  border-color: #4a68d6;
+  border-color: #8d348f;
   box-shadow: 0 0 0 2px rgba(74, 104, 214, 0.2);
   outline: none;
 }
 
 .btn {
   width: 100%;
-  background: #4a68d6;
+  background: #bf4ad6;
   color: #fff;
   border: none;
   padding: 12px;
@@ -70,7 +70,7 @@ input:focus {
 }
 
 .btn:hover {
-  background: #3b53b8;
+  background: #933bb8;
 }
 
 .error {
@@ -87,7 +87,7 @@ input:focus {
 
 .register-link a {
   text-decoration: none;
-  color: #4a68d6;
+  color: #c14ad6;
   font-weight: bold;
 }
 
@@ -99,3 +99,4 @@ input:focus {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
+

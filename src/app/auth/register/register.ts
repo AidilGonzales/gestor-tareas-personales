@@ -24,7 +24,9 @@ export class Register {
       await this.auth.register(this.email, this.password);
       this.router.navigate(['/login']);
     } catch (err: any) {
-      this.errorMsg = err.message;
+      this.errorMsg = "Hubo un error al registrarte";
+      this.password = '';
+
     }
   }
 }
