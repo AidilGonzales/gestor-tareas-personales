@@ -1,6 +1,26 @@
-<nav>
-  <a routerLink="/tareas">Tareas</a>
-  <a routerLink="/categorias">Categorías</a>
-  <a routerLink="/estadisticas">Estadísticas</a>
-  <a routerLink="/login">Salir</a>
+<nav class="navbar">
+
+  <div class="nav-left">
+    <a routerLink="/tareas" class="brand">MisTareas</a>
+
+    <a routerLink="/tareas" routerLinkActive="activo">Tareas</a>
+    <a routerLink="/categorias" routerLinkActive="activo">Categorías</a>
+    <a routerLink="/estadisticas" routerLinkActive="activo">Estadísticas</a>
+  </div>
+
+  <div class="nav-right">
+
+    <!-- Si NO está logueada -->
+    <ng-container *ngIf="!estaLogueada">
+      <a routerLink="/login" class="btn">Login</a>
+      <a routerLink="/register" class="btn outlined">Registro</a>
+    </ng-container>
+
+    <!-- Si está logueada -->
+    <ng-container *ngIf="estaLogueada">
+      <button class="btn" (click)="logout()">Salir</button>
+    </ng-container>
+
+  </div>
+
 </nav>

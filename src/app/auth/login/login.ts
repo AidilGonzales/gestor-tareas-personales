@@ -17,6 +17,7 @@ export class Login {
   email = '';
   password = '';
   errorMsg = '';
+  
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -26,6 +27,7 @@ export class Login {
       this.router.navigate(['/tareas']);
     } catch (err: any) {
       this.errorMsg = err.message;
+      this.password = '';
     }
   }
 }
