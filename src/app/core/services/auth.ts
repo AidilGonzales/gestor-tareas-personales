@@ -1,30 +1,28 @@
-import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
+import { Injectable, inject } from '@angular/core';
+import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  constructor(private auth: Auth) {}
+  auth = inject(Auth);
+  router = inject(Router);
 
-  // Registrar usuario
-  register(email: string, password: string) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
-  }
+  // 🔥 ESTE es el observable que tu guard necesita
+  user$ = authState(this.auth);
 
-  // Iniciar sesión
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  // Cerrar sesión
-  logout() {
-    return signOut(this.auth);
+  register(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  // Obtener usuario actual
-  get currentUser(): User | null {
-    return this.auth.currentUser;
+  
+  logout() {
+    return signOut(this.auth).then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/auth';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +13,18 @@ import { AuthService } from '../../../core/services/auth';
 })
 export class Navbar {
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private auth: Auth,
+    private router: Router
+  ) {}
 
+  // ⭐ Forma correcta de saber si hay usuario logueado
   get estaLogueada() {
     return this.auth.currentUser !== null;
   }
 
   logout() {
-    this.auth.logout();
-    this.router.navigate(['/login']);
+    this.authService.logout();
   }
 }

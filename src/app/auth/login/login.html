@@ -2,7 +2,7 @@
 
   <div class="card">
 
-    <h2>Bienvenida</h2>
+    <h2>Bienvenid@</h2>
     <p class="subtitle">Ingresa para continuar</p>
 
     <form (ngSubmit)="login()">
@@ -14,7 +14,7 @@
           [(ngModel)]="email" 
           name="email" 
           placeholder="ejemplo@gmail.com" 
-          required 
+          required
         />
       </div>
 
@@ -25,18 +25,18 @@
           [(ngModel)]="password" 
           name="password" 
           placeholder="********" 
-          required 
+          required
         />
       </div>
 
-      <button class="btn" type="submit">Iniciar Sesión</button>
+      <button class="btn" type="submit">Iniciar sesión</button>
 
       <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
-
+      
       <p class="register-link">
         ¿No tienes cuenta?
         <a routerLink="/register">Crear cuenta</a>
-      </p>
+
 
     </form>
 
