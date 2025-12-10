@@ -1,1 +1,35 @@
-<p>estadisticas works!</p>
+<div class="contenedor">
+
+  <h2>Estadísticas Generales</h2>
+
+  <div class="tarjetas">
+
+    <div class="card total">
+      <h3>Total de tareas</h3>
+      <p>{{ total }}</p>
+    </div>
+
+    <div class="card completadas">
+      <h3>Completadas</h3>
+      <p>{{ completadas }}</p>
+    </div>
+
+    <div class="card pendientes">
+      <h3>Pendientes</h3>
+      <p>{{ pendientes }}</p>
+    </div>
+
+  </div>
+
+  <h3>Tareas por categoría</h3>
+
+  <div class="categorias">
+
+    <div *ngFor="let c of tareasPorCategoria" class="cat-card">
+      <p><b>{{ c.categoria }}</b></p>
+      <p>{{ c.cantidad }} tareas</p>
+    </div>
+
+  </div>
+
+</div>

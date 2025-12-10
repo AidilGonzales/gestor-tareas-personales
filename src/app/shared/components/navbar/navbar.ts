@@ -12,19 +12,23 @@ import { Auth } from '@angular/fire/auth';
   styleUrl: './navbar.scss'
 })
 export class Navbar {
+  
+  estaLogueada = false;
 
   constructor(
     private authService: AuthService,
     private auth: Auth,
     private Router : Router
-  ) {}
+  ) {
 
-  // ⭐ Forma cor recta de saber si hay usuario logueado
-  get estaLogueada() {
-    return this.auth.currentUser !== null;
+    this.authService.user$.subscribe(user => {
+      this.estaLogueada = !!user;
+    });
+
   }
-
+  
   logout() {
     this.authService.logout();
   }
+
 }

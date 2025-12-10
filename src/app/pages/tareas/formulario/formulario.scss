@@ -1,62 +1,74 @@
-.contenedor {
-  max-width: 480px;
+.form-container {
+  background: #ffe7f3;
+  padding: 30px;
+  max-width: 520px;
   margin: 40px auto;
-  padding: 20px;
-  background: #181818;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  color: white;
+  border-radius: 20px;
+  border: 2px solid #ffc9e5;
+  animation: fade .4s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 20px;
+  color: #d84b9a;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 label {
-  font-weight: bold;
-  margin-top: 12px;
-  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #b6277a;
 }
 
 input,
 textarea,
 select {
-  width: 100%;
+
   padding: 10px;
-  margin-top: 4px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background: #222;
-  color: white;
+  border: 1px solid #ffb8d8;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  resize: none;
 }
 
-textarea {
-  height: 90px;
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #ff7eb6;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background: #ff7b00;
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-guardar {
+  background: #ff7eb6;
   border: none;
-  border-radius: 8px;
+  padding: 12px;
   color: white;
-  font-weight: bold;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: 600;
+  transition: .2s;
 }
 
-button:disabled {
-  background: #555;
-  cursor: not-allowed;
-}
-
-.error {
-  color: #ff4e4e;
-  font-size: 13px;
-}
-
-.checkbox {
-  margin-top: 10px;
+.btn-guardar:hover {
+  background: #ff5fa5;
 }

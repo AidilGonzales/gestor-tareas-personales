@@ -1,0 +1,44 @@
+.home-container {
+  text-align: center;
+  padding-top: 70px;
+  animation: fade .4s ease;
+  color: #d33f93;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #b62878;
+}
+
+.botones {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  background: #ff7eb6;
+  padding: 12px 20px;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #ff589f;
+}
+
+.mini {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #a14a7b;
+}

@@ -1,0 +1,110 @@
+.contenedor {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  animation: fade .4s;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.buscador {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ffc8e0;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn-agregar {
+  background: #ff7eb6;
+  border: none;
+  padding: 8px 14px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.btn-agregar:hover {
+  background: #ff5fa5;
+}
+
+.vacio {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #777;
+}
+
+.lista {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item {
+  background: #ffe7f3;
+  border: 1px solid #ffb5d9;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.item h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.descripcion {
+  opacity: 0.8;
+}
+
+.estado.ok {
+  color: green;
+}
+.estado.pendiente {
+  color: #d9534f;
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: .2s;
+  color: white;
+}
+
+.ver { background: #6ea8fe; }
+.ver:hover { background: #4e92ff; }
+
+.editar { background: #ffc107; color: black; }
+.editar:hover { background: #e0a800; }
+
+.eliminar { background: #ff4d6d; }
+.eliminar:hover { background: #e63950; }
