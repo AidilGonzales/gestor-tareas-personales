@@ -65,6 +65,11 @@ crear() {
     this.editando = null;
   }
 
+  cancelar() {
+    this.editando = null;
+  }
+
+
   eliminar(id: string | undefined) {
     if (!id) return;
     this.categoriasService.eliminarCategoria(id);

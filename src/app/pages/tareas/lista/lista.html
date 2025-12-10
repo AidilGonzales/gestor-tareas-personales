@@ -1,1 +1,36 @@
-<p>lista works!</p>
+<div class="contenedor">
+
+  <h2>Tus Tareas</h2>
+
+  <input type="text" [(ngModel)]="filtro" placeholder="Buscar tarea..." class="buscador">
+
+  <button routerLink="/tareas/nueva" class="btn-agregar">+ Nueva tarea</button>
+
+  <div *ngIf="tareasFiltradas.length === 0" class="vacio">
+    No hay tareas registradas.
+  </div>
+
+  <div class="lista">
+    <div *ngFor="let t of tareasFiltradas" class="item">
+
+      <h3>{{ t.titulo }}</h3>
+
+      <p>{{ t.descripcion }}</p>
+
+      <p><b>Categoría:</b> {{ t.categoriaId }}</p>
+      <p><b>Fecha:</b> {{ t.fecha }}</p>
+
+      <p [class.ok]="t.completada" [class.pendiente]="!t.completada">
+        <b>Estado:</b> {{ t.completada ? 'Completada' : 'Pendiente' }}
+      </p>
+
+      <div class="acciones">
+        <button routerLink="/tareas/{{t.id}}">Ver</button>
+        <button routerLink="/tareas/{{t.id}}?edit=true">Editar</button>
+        <button (click)="eliminar(t.id)">Eliminar</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+.contenedor {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #181818;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 12px;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+}
+
+textarea {
+  height: 90px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #ff7b00;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff4e4e;
+  font-size: 13px;
+}
+
+.checkbox {
+  margin-top: 10px;
+}

@@ -1,1 +1,56 @@
-<p>detalle works!</p>
+<div class="contenedor" *ngIf="!cargando">
+
+  <h2>Detalle de Tarea</h2>
+
+  <div *ngIf="tarea">
+
+    <div class="campo">
+      <label>Título</label>
+      <input [(ngModel)]="tarea.titulo" [readonly]="!modoEdicion">
+    </div>
+
+    <div class="campo">
+      <label>Descripción</label>
+      <textarea [(ngModel)]="tarea.descripcion" [readonly]="!modoEdicion"></textarea>
+    </div>
+
+    <div class="campo">
+      <label>Categoría</label>
+      <input [(ngModel)]="tarea.categoriaId" [readonly]="!modoEdicion">
+    </div>
+
+    <div class="campo">
+      <label>Fecha</label>
+      <input type="date" [(ngModel)]="tarea.fecha" [readonly]="!modoEdicion">
+    </div>
+
+    <div class="campo">
+      <label>Completada</label>
+      <input type="checkbox" [(ngModel)]="tarea.completada" [disabled]="!modoEdicion">
+    </div>
+
+    <div class="acciones">
+
+      <button routerLink="/tareas">Volver</button>
+
+      <button *ngIf="!modoEdicion" routerLink="/tareas/{{tarea.id}}?edit=true">
+        Editar
+      </button>
+
+      <button *ngIf="modoEdicion" (click)="guardarCambios()">
+        Guardar cambios
+      </button>
+
+      <button class="delete" (click)="eliminar()">
+        Eliminar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="cargando" class="cargando">
+  Cargando tarea...
+</div>

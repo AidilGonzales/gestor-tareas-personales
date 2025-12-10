@@ -16,10 +16,10 @@ export class Navbar {
   constructor(
     private authService: AuthService,
     private auth: Auth,
-    private router: Router
+    private Router : Router
   ) {}
 
-  // ⭐ Forma correcta de saber si hay usuario logueado
+  // ⭐ Forma cor recta de saber si hay usuario logueado
   get estaLogueada() {
     return this.auth.currentUser !== null;
   }
