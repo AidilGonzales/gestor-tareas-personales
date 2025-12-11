@@ -4,43 +4,39 @@
 
   <form [formGroup]="form" (ngSubmit)="guardar()">
 
-    <!-- TÍTULO -->
+
     <label>Título</label>
     <input type="text" formControlName="titulo" placeholder="Escribe un título..." />
     <p class="error" *ngIf="form.controls['titulo'].invalid && form.controls['titulo'].touched">
       El título es obligatorio.
     </p>
 
-    <!-- DESCRIPCIÓN -->
+
     <label>Descripción</label>
     <textarea formControlName="descripcion" placeholder="Descripción corta..."></textarea>
 
-    <!-- CATEGORÍA -->
     <label>Categoría</label>
     <select formControlName="categoriaId">
       <option value="" disabled selected>Seleccione una categoría...</option>
-      <option *ngFor="let cat of categorias" [value]="cat.id">
-        {{ cat.nombre }}
-      </option>
+      <option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.nombre }}</option>
     </select>
+
     <p class="error" *ngIf="form.controls['categoriaId'].invalid && form.controls['categoriaId'].touched">
       La categoría es obligatoria.
     </p>
 
-    <!-- FECHA -->
     <label>Fecha</label>
     <input type="date" formControlName="fecha" />
+
     <p class="error" *ngIf="form.controls['fecha'].invalid && form.controls['fecha'].touched">
       La fecha es obligatoria.
     </p>
 
-    <!-- ESTADO -->
     <label class="checkbox">
       <input type="checkbox" formControlName="completada" />
       Marcar como completada
     </label>
 
-    <!-- BOTÓN -->
     <button type="submit" [disabled]="form.invalid">Guardar</button>
 
   </form>

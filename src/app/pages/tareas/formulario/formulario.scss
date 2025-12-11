@@ -1,74 +1,92 @@
-.form-container {
-  background: #ffe7f3;
+.contenedor {
+  max-width: 480px;
+  margin: 50px auto;
   padding: 30px;
-  max-width: 520px;
-  margin: 40px auto;
+  background: #fff; /* Aquí cambié el negro por blanco */
   border-radius: 20px;
-  border: 2px solid #ffc9e5;
-  animation: fade .4s ease;
-}
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ffdcec;
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 600;
+  }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #d84b9a;
-  font-weight: 700;
-  font-size: 24px;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+  label {
+    font-weight: 500;
+    color: #444;
+  }
 
-label {
-  font-size: 15px;
-  font-weight: 600;
-  color: #b6277a;
-}
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #e7b2c8;
+    background: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
 
-input,
-textarea,
-select {
+    &:focus {
+      border-color: #ff84b9;
+      box-shadow: 0 0 4px rgba(255, 132, 185, 0.6);
+    }
+  }
 
-  padding: 10px;
-  border: 1px solid #ffb8d8;
-  border-radius: 10px;
-  background: #fff;
-  font-size: 15px;
-  resize: none;
-}
+  textarea {
+    height: 110px;
+    resize: none;
+  }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 2px solid #ff7eb6;
-}
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #444;
 
-.check {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+    input {
+      width: 18px;
+      height: 18px;
+    }
+  }
 
-.btn-guardar {
-  background: #ff7eb6;
-  border: none;
-  padding: 12px;
-  color: white;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: .2s;
-}
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #ff8fb8;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.2s;
 
-.btn-guardar:hover {
-  background: #ff5fa5;
+    &:hover {
+      background: #ff74aa;
+    }
+
+    &:disabled {
+      background: #ffb6d4;
+      cursor: not-allowed;
+    }
+  }
+
+  .error {
+    color: #d43d6f;
+    font-size: 13px;
+    margin-top: -10px;
+  }
 }

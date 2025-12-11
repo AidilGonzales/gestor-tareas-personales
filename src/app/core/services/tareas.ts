@@ -17,6 +17,7 @@ export class TareasService {
   // Crear tarea
   crearTarea(tarea: Tarea) {
     return addDoc(this.tareasRef, tarea);
+  
   }
 
   // Obtener tareas del usuario
