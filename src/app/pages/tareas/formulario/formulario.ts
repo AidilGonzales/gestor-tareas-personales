@@ -27,12 +27,17 @@ export class Formulario {
   categorias: any[] = [];
 
   form = this.fb.group({
-    titulo: ['', Validators.required],
-    descripcion: [''],
+    titulo: ['', [Validators.required, Validators.minLength(3)]],
+    descripcion: ['', [Validators.maxLength(500)]],
     categoriaId: ['', Validators.required],
     fecha: ['', Validators.required],
     completada: [false],
   });
+  
+  get titulo() { return this.form.get('titulo'); }
+  get descripcion() { return this.form.get('descripcion'); }
+  get categoriaId() { return this.form.get('categoriaId'); }
+  get fecha() { return this.form.get('fecha'); }
 
   constructor() {
 
@@ -41,7 +46,10 @@ export class Formulario {
     });
 
   }
-
+  
+  cancelar() {
+    this.router.navigate(['/tareas']);
+  }
 
   async guardar() {
     if (this.form.invalid) return;

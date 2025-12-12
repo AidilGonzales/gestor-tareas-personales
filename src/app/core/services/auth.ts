@@ -8,6 +8,13 @@ export class AuthService {
   auth = inject(Auth);
   router = inject(Router);
 
+  constructor() {
+    this.user$.subscribe(u => {
+     console.log("🔥 AUTHSTATE CAMBIO:", u);
+    });
+  }
+
+
   // 🔥 ESTE es el observable que tu guard necesita
   user$ = authState(this.auth);
 

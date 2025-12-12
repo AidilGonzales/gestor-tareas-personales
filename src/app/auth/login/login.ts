@@ -21,13 +21,26 @@ export class Login {
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  async login() {
-    try {
-      await this.auth.login(this.email, this.password);
-      this.router.navigate(['/tareas']);
-    } catch (err: any) {
-      this.errorMsg = err.message;
-      this.password = '';
-    }
-  }
+  login() {
+    this.errorMsg = '';
+
+    this.auth.login(this.email, this.password)
+      .then(() => {
+        this.router.navigate(['/home']);
+      })
+      .catch(err => {
+        if (err.code === 'auth/user-not-found') {
+          this.errorMsg = 'El usuario no está registrado.';
+        } else if (err.code === 'auth/wrong-password') {
+          this.errorMsg = 'La contraseña es incorrecta.';
+        } else {
+          this.errorMsg = 'Error al iniciar sesión. Intenta nuevamente.';
+        }
+      });
+}
+
+
+
+
+
 }

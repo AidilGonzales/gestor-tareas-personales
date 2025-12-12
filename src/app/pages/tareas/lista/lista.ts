@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CategoriasService } from '../../../core/services/categorias';
+import { AuthService } from '../../../core/services/auth';
+
 
 @Component({
   selector: 'app-lista-tareas',
@@ -20,8 +22,11 @@ export class Lista {
   tareas: Tarea[] = [];
   filtro = '';
   
-  constructor() {
+  constructor(private auth: AuthService) {
+    console.log("👤 UID ACTUAL:", this.auth.auth.currentUser?.uid);
+
     this.tareasService.obtenerTareas().subscribe(data => {
+      console.log("🔥 TAREAS RECIBIDAS:", data);
       this.tareas = data;
     });
     this.categoriasService.obtenerCategorias().subscribe(data => {
