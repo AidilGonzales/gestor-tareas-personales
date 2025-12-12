@@ -76,33 +76,23 @@ Este apartado se completará cuando se implementen todos los componentes, servic
 ---
 
 ## URL de Firebase Hosting (pendiente)
-Este enlace será añadido después del deploy.
+Este es el enlace del deploy : https://gestor-tareas-personales.web.app
 
 
 ---
 
 ## Video Explicativo (5–8 minutos) (pendiente)
-Será añadido cuando el proyecto esté completamente funcional.
+
+
+Video: https://drive.google.com/drive/folders/1iJSgoIFdO07MircL2pITBsth2oCo8ecl?usp=drive_link
 
 
 ---
 
 ## Manual de Usuario (versión preliminar)
-Registrarse con correo y contraseña.
 
-Iniciar sesión.
 
-Crear una nueva tarea.
-
-Editar una tarea existente.
-
-Eliminar tareas innecesarias.
-
-Aplicar filtros y búsquedas.
-
-Revisar el resumen de estadísticas.
-
-El manual completo se añadirá al finalizar todas las funcionalidades.
+El manual completo : https://drive.google.com/drive/folders/1t3p2VkzMLbjpnxnOAGA9h5GvSv7CH8Z1?usp=drive_link
 
 ## Docente:
 Iván Soria Solis

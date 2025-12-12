@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TareasService } from '../../../core/services/tareas';
+import { CategoriasService } from '../../../core/services/categorias';
 import { Tarea } from '../../../core/models/tarea.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,26 +16,37 @@ import { FormsModule } from '@angular/forms';
 export class Detalle {
 
   private tareasService = inject(TareasService);
+  private categoriasService = inject(CategoriasService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
   tarea: Tarea | null = null;
+  categorias: any[] = [];
   cargando = true;
   modoEdicion = false;
 
-  ngOnInit() {
+  constructor() {
     const id = this.route.snapshot.paramMap.get('id');
 
-    if (!id) return;
+    // Activar edición si viene ?edit=true
+    const editParam = this.route.snapshot.queryParamMap.get('edit');
+    this.modoEdicion = editParam === 'true';    
 
-    // cargar la tarea
-    this.tareasService.obtenerTareaPorId(id).subscribe((tarea: any) => {
-      this.tarea = tarea;
-      this.cargando = false;
+    if (id) {
+      this.tareasService.obtenerTareaPorId(id).subscribe((data: Tarea)=> {
+        this.tarea = data;
+        this.cargando = false;
+      });
+    }
+
+    // cargar categorías
+    this.categoriasService.obtenerCategorias().subscribe(data => {
+      this.categorias = data;
     });
+  }  
 
-    // si la URL tiene ?edit=true → activar edición
-    this.modoEdicion = this.route.snapshot.queryParamMap.get('edit') === 'true';
+  activarEdicion() {
+    this.modoEdicion = true;
   }
 
   guardarCambios() {

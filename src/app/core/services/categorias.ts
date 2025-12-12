@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc } from '@angular/fire/firestore';
+import { Injectable, inject } from '@angular/core';
+import { Firestore, collection, addDoc, doc, updateDoc, deleteDoc, collectionData, query, where, orderBy } from '@angular/fire/firestore';
 import { Categoria } from '../models/categoria.model';
-import { Observable } from 'rxjs';
+import { Observable, of, switchMap, map } from 'rxjs';
+import { AuthService } from './auth';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import { Observable } from 'rxjs';
 export class CategoriasService {
 
   private categoriasRef;
+  private auth = inject(AuthService);
 
   constructor(private firestore: Firestore) {
     this.categoriasRef = collection(this.firestore, 'categorias');
@@ -20,8 +23,26 @@ export class CategoriasService {
   }
 
   // Obtener categorías (tiempo real)
+  
   obtenerCategorias(): Observable<Categoria[]> {
-    return collectionData(this.categoriasRef, { idField: 'id' }) as Observable<Categoria[]>;
+    return this.auth.user$.pipe(
+      switchMap((usuario) => {
+        if (!usuario) return of([]);
+
+        const ref = query(
+          this.categoriasRef,
+          where('creadoPor', '==', usuario.uid)
+        );
+
+        return collectionData(ref, { idField: 'id' }).pipe(
+          map((categorias: any[]) => {
+            return (categorias || []).slice().sort((a, b) =>
+              a.nombre.localeCompare(b.nombre)
+            );
+          })
+        );
+      })
+    );
   }
 
   // Editar categoría

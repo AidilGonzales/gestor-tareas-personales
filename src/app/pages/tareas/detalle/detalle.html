@@ -16,7 +16,9 @@
 
     <div class="campo">
       <label>Categoría</label>
-      <input [(ngModel)]="tarea.categoriaId" [readonly]="!modoEdicion">
+      <select [(ngModel)]="tarea.categoriaId" [disabled]="!modoEdicion">
+        <option *ngFor="let c of categorias" [value]="c.id">{{ c.nombre }}</option>
+      </select>
     </div>
 
     <div class="campo">
@@ -33,14 +35,17 @@
 
       <button routerLink="/tareas">Volver</button>
 
-      <button *ngIf="!modoEdicion" routerLink="/tareas/{{tarea.id}}?edit=true">
+      <!-- BOTÓN EDITAR CUANDO ESTÁS EN MODO VER -->
+      <button *ngIf="!modoEdicion" (click)="activarEdicion()">
         Editar
       </button>
 
+      <!-- BOTÓN GUARDAR CUANDO ESTÁS EDITANDO -->
       <button *ngIf="modoEdicion" (click)="guardarCambios()">
         Guardar cambios
       </button>
 
+      <!-- ELIMINAR SIEMPRE -->
       <button class="delete" (click)="eliminar()">
         Eliminar
       </button>

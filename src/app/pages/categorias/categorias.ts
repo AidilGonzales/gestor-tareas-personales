@@ -3,6 +3,7 @@ import { CategoriasService } from '../../core/services/categorias';
 import { Categoria } from '../../core/models/categoria.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../core/services/auth';
 
 @Component({
   selector: 'app-categorias',
@@ -16,8 +17,12 @@ export class Categorias implements OnInit {
   categorias: Categoria[] = [];
   nuevaCategoria: string = '';
   editando: Categoria | null = null;
+  errorMsg = '';
 
-  constructor(private categoriasService: CategoriasService) {}
+  constructor(
+    private categoriasService: CategoriasService,
+    private auth: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.categoriasService.obtenerCategorias().subscribe(data => {
@@ -25,31 +30,28 @@ export class Categorias implements OnInit {
     });
   }
 
-  errorMsg = '';
+  crear() {
+    const nombre = this.nuevaCategoria.trim();
 
-crear() {
-  const nombre = this.nuevaCategoria.trim();
+    if (!nombre) {
+      this.errorMsg = "El nombre no puede estar vacío.";
+      return;
+    }
 
-  if (!nombre) {
-    this.errorMsg = "El nombre no puede estar vacío.";
-    return;
+    if (this.categorias.some(c => c.nombre.toLowerCase() === nombre.toLowerCase())) {
+      this.errorMsg = "Esta categoría ya existe.";
+      return;
+    }
+
+    const cat: Categoria = {
+      nombre,
+      creadoPor: this.auth.auth.currentUser?.uid ?? ''
+    };
+
+    this.categoriasService.crearCategoria(cat);
+    this.nuevaCategoria = '';
+    this.errorMsg = '';
   }
-
-  if (this.categorias.some(c => c.nombre.toLowerCase() === nombre.toLowerCase())) {
-    this.errorMsg = "Esta categoría ya existe.";
-    return;
-  }
-
-  const categoria: Categoria = {
-    nombre,
-    creadoPor: '' // luego pondremos el UID real
-  };
-
-  this.categoriasService.crearCategoria(categoria);
-  this.nuevaCategoria = '';
-  this.errorMsg = '';
-}
-
 
   seleccionarParaEditar(cat: Categoria) {
     this.editando = { ...cat };
@@ -69,9 +71,11 @@ crear() {
     this.editando = null;
   }
 
-
   eliminar(id: string | undefined) {
     if (!id) return;
-    this.categoriasService.eliminarCategoria(id);
+
+    if (confirm("¿Eliminar categoría?")) {
+      this.categoriasService.eliminarCategoria(id);
+    }
   }
 }
