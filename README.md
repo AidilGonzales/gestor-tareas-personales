@@ -85,30 +85,32 @@ Abrira en el navegador: http://localhost:4200/
 
 ## Arquitectura del Proyecto (se añadirá al finalizar)
 
+
 src/
-├── app/
-│ ├── auth/
-│ │ ├── login/
-│ │ └── register/
-│ ├── core/
-│ │ ├── guards/
-│ │ ├── models/
-│ │ └── services/
-│ ├── pages/
-│ │ ├── tareas/
-│ │ │ ├── lista/
-│ │ │ ├── detalle/
-│ │ │ └── formulario/
-│ │ ├── categorias/
-│ │ └── estadisticas/
-│ ├── shared/
-│ │ └── components/
-│ │   └── navbar/
-│ ├── app.html
-│ ├── app.routes.ts
-│ ├── app.scss
-│ └── app.ts
-└── assets/
+ └── app/
+      ├── auth/
+      │    ├── login/
+      │    └── register/
+      ├── core/
+      │    ├── guards/
+      │    ├── models/
+      │    └── services/
+      ├── pages/
+      │    ├── tareas/
+      │    │     ├── lista/
+      │    │     ├── detalle/
+      │    │     └── formulario/
+      │    ├── categorias/
+      │    └── estadisticas/
+      ├── shared/
+      │    └── components/
+      │           └── navbar/
+      ├── app.routes.ts
+      ├── app.html
+      ├── app.ts
+      ├── app.scss
+ └── assets/
+
 
 Incluye:  
 ✔ Componentes standalone  
