@@ -23,6 +23,17 @@ Construir una aplicación web funcional que implemente operaciones **CRUD**, aut
 
 ---
 
+## Objetivos Específicos
+
+- Implementar un sistema de autenticación seguro con **Firebase Authentication**.  
+- Desarrollar operaciones CRUD completas para tareas.  
+- Implementar la gestión de categorías personalizadas por usuario.  
+- Desarrollar estadísticas de tareas (completadas, pendientes, totales).  
+- Mantener datos sincronizados en tiempo real usando **Firestore**.  
+- Aplicar buenas prácticas de organización en Angular: servicios, guards, rutas y componentes standalone.  
+
+---
+
 ## Requerimientos Funcionales
 
 - Implementar autenticación de usuarios con **Firebase Authentication**.
@@ -58,20 +69,53 @@ cd gestor-tareas-personales
 
 ### 2. Instalar dependencias
 
-Copiar código
+Copiar código:
+
 npm install
 
 ### 3. Ejecutar el servidor de desarrollo
 
-Copiar código
+Copiar código:
+
 ng serve -o
-Abrir en el navegador: http://localhost:4200/
+
+Abrira en el navegador: http://localhost:4200/
 
 ---
 
 ## Arquitectura del Proyecto (se añadirá al finalizar)
-Este apartado se completará cuando se implementen todos los componentes, servicios y guards del proyecto.
 
+src/
+├── app/
+│ ├── auth/
+│ │ ├── login/
+│ │ └── register/
+│ ├── core/
+│ │ ├── guards/
+│ │ ├── models/
+│ │ └── services/
+│ ├── pages/
+│ │ ├── tareas/
+│ │ │ ├── lista/
+│ │ │ ├── detalle/
+│ │ │ └── formulario/
+│ │ ├── categorias/
+│ │ └── estadisticas/
+│ ├── shared/
+│ │ └── components/
+│ │   └── navbar/
+│ ├── app.html
+│ ├── app.routes.ts
+│ ├── app.scss
+│ └── app.ts
+└── assets/
+
+Incluye:  
+✔ Componentes standalone  
+✔ Servicios centralizados  
+✔ Guards  
+✔ Firebase modular  
+✔ SCSS por página  
 
 ---
 
