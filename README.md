@@ -83,33 +83,57 @@ Abrira en el navegador: http://localhost:4200/
 
 ---
 
-## Arquitectura del Proyecto (se añadirá al finalizar)
+## Arquitectura del Proyecto 
 
 
 src/
+
  └── app/
+
       ├── auth/
+
       │    ├── login/
+
       │    └── register/
+
       ├── core/
+
       │    ├── guards/
+
       │    ├── models/
+
       │    └── services/
+
       ├── pages/
+
       │    ├── tareas/
+
       │    │     ├── lista/
+
       │    │     ├── detalle/
+
       │    │     └── formulario/
+
       │    ├── categorias/
+
       │    └── estadisticas/
+
       ├── shared/
+
       │    └── components/
+
       │           └── navbar/
+
       ├── app.routes.ts
+
       ├── app.html
+
       ├── app.ts
+
       ├── app.scss
+
  └── assets/
+ 
 
 
 Incluye:  
@@ -121,22 +145,20 @@ Incluye:
 
 ---
 
-## URL de Firebase Hosting (pendiente)
+## URL de Firebase Hosting 
 Este es el enlace del deploy : https://gestor-tareas-personales.web.app
 
 
 ---
 
-## Video Explicativo (5–8 minutos) (pendiente)
-
+## Video Explicativo (5–8 minutos) 
 
 Video: https://drive.google.com/drive/folders/1iJSgoIFdO07MircL2pITBsth2oCo8ecl?usp=drive_link
 
 
 ---
 
-## Manual de Usuario (versión preliminar)
-
+## Manual de Usuario 
 
 El manual completo : https://drive.google.com/drive/folders/1t3p2VkzMLbjpnxnOAGA9h5GvSv7CH8Z1?usp=drive_link
 
