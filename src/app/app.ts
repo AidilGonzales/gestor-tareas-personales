@@ -12,14 +12,17 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  rutaActual = '';
+  rutaActual: string = '';
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.rutaActual = event.url;
+        console.log('Ruta actual:', this.rutaActual);
+      
       }
     });
   }
 
 }
+

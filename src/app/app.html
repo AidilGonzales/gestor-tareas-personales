@@ -1,23 +1,38 @@
-<app-navbar>
+<app-navbar></app-navbar>
 
-</app-navbar>
+<div
+  *ngIf="rutaActual === '/login' || rutaActual === '/register'"
+  class="auth-layout"
+  [ngClass]="rutaActual === '/login' ? 'login-bg' : 'register-bg'"
+>
+  <!-- LADO IZQUIERDO -->
+  <div class="auth-info">
+    <div class="overlay">
+      <h1>Bienvenido a <span>MisTareas 💫</span></h1>
 
-<!-- Home bonita cuando estás en "/" -->
-<div *ngIf="rutaActual === '/login' || rutaActual === '/register'" class="home-container">
-  <h1>Bienvenido a MisTareas ✨</h1>
-  
-  <p class="sub">Organiza tus tareas, maneja tus categorías y revisa tus estadísticas. </p>
-  <p>DE: Aidil Gonzales Medina</p>
+      <p class="sub">
+        Gestiona tus tareas diarias, organiza tus categorías
+        y analiza tu progreso de forma simple y eficiente.
+      </p>
 
-  <p class="mini">
-    Psdt. tienes que iniciar sesion para usar la pagina web. 💫
-  </p>
+      <ul class="features">
+        <li>✔ Gestión de tareas en tiempo real</li>
+        <li>✔ Categorías personalizadas</li>
+        <li>✔ Estadísticas visuales</li>
+        <li>✔ Acceso seguro con Firebase</li>
+      </ul>
 
-  <p class="mini">
+      <p class="autor">Proyecto desarrollado por <b>Aidil Gonzales Medina</b></p>
+    </div>
+  </div>
 
-  </p>
-
-
+  <!-- LADO DERECHO -->
+  <div class="auth-form">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
-<router-outlet></router-outlet>
+<!-- Rutas normales -->
+<div *ngIf="rutaActual !== '/login' && rutaActual !== '/register'">
+  <router-outlet></router-outlet>
+</div>
